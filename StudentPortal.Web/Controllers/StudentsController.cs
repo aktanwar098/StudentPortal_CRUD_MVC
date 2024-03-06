@@ -15,7 +15,7 @@ namespace StudentPortal.Web.Controllers
         }
 
 
-        //Getting add page for creating a student in db
+        //Getting  add page for creating a student in db
         [HttpGet]
         public IActionResult Add()
         {
