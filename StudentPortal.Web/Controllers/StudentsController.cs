@@ -65,7 +65,7 @@ namespace StudentPortal.Web.Controllers
         {
             var student = await dbContext.Students.FindAsync(viewModel.Id);
 
-            if(student is not null)
+            if (student is not null)
             {
                 student.Name = viewModel.Name;
                 student.Email = viewModel.Email;
@@ -77,6 +77,22 @@ namespace StudentPortal.Web.Controllers
 
             //now returning to main action called "List"
 
+            return RedirectToAction("List", "Students");
+        }
+
+
+        //DELETING Student from database
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(Student viewModel)
+        {
+            var student = await dbContext.Students.FindAsync(viewModel.Id);
+
+            if (student is not null)
+            {
+                dbContext.Students.Remove(student);
+                await dbContext.SaveChangesAsync();
+            }
             return RedirectToAction("List", "Students");
         }
     }
