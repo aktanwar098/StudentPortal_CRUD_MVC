@@ -37,7 +37,8 @@ namespace StudentPortal.Web.Controllers
 
             await dbContext.Students.AddAsync(student);
             await dbContext.SaveChangesAsync();
-            return View();
+            //return View();
+            return RedirectToAction("List", "Students");
         }
 
 
