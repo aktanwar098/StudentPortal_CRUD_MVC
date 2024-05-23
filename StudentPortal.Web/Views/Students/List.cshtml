@@ -7,13 +7,19 @@
 
 @model List<StudentPortal.Web.Models.Entites.Student>
 
-<h1>All Students</h1>
-<table class="table">
+<div class="d-flex justify-content-between" >
+    <h1>All Students</h1>
+    <a class="btn btn-primary h-50 w-15" asp-controller="Students" asp-action="Add">Add Student</a>
+</div>
+
+
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Id</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Phone Number</th>
             <th> </th>
         </tr>
     </thead>
@@ -24,6 +30,7 @@
                 <td>@student.Id</td>
                 <td>@student.Name</td>
                 <td>@student.Email</td>
+                <td>@student.Phone</td>
                 <td>
                     <a class="btn btn-primary" asp-controller="Students" asp-action="Edit" asp-route-id="@student.Id">Edit</a>
                 </td>

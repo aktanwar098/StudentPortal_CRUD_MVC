@@ -21,12 +21,19 @@ namespace StudentPortal.Web.Controllers
         public IActionResult Add()
         {
             return View();
+            //return RedirectToAction("Add", "Students");
         }
 
         //Creating a student in database
         [HttpPost]
         public async Task<IActionResult> Add(AddStudentViewModel viewModel)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+
             var student = new Student
             {
                 Name = viewModel.Name,
