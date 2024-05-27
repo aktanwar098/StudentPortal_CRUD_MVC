@@ -18,7 +18,6 @@ namespace StudentPortal.Web.Models.Entites
         [StringLength(10, ErrorMessage = "Please do not enter values over 10 digits")]
         public string Phone { get; set; }
 
-        
         public bool Subscribed { get; set; }
     }
 }

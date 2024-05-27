@@ -15,7 +15,6 @@ namespace StudentPortal.Web.Controllers
             this.dbContext = dbContext;
         }
 
-
         //Getting  add page for creating a student in db
         [HttpGet]
         public IActionResult Add()
@@ -57,7 +56,6 @@ namespace StudentPortal.Web.Controllers
             return View(students);
         }
 
-
         //First we get student for Updating student 
         [HttpGet]
         public async Task<IActionResult> Edit(Guid id)
@@ -82,9 +80,7 @@ namespace StudentPortal.Web.Controllers
 
                 await dbContext.SaveChangesAsync();
             }
-
             //now returning to main action called "List"
-
             return RedirectToAction("List", "Students");
         }
 
